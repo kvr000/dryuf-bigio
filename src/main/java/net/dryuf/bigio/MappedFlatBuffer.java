@@ -32,13 +32,6 @@ import sun.misc.Unsafe;
 @SuppressWarnings("restriction")
 public class MappedFlatBuffer extends AbstractFlatBuffer
 {
-	private static Method getClassMethod(Class<?> cls, String name, Class<?>... params) throws Exception
-	{
-		Method m = cls.getDeclaredMethod(name, params);
-		m.setAccessible(true);
-		return m;
-	}
-
 	public MappedFlatBuffer(FileChannel channel, FileChannel.MapMode mode, long len) throws IOException
 	{
 		if (len < 0) {
@@ -190,6 +183,13 @@ public class MappedFlatBuffer extends AbstractFlatBuffer
 			return 1;
 		}
 		throw new IllegalArgumentException("Unsupported memory map mode: "+mode);
+	}
+
+	private static Method getClassMethod(Class<?> cls, String name, Class<?>... params) throws Exception
+	{
+		Method m = cls.getDeclaredMethod(name, params);
+		m.setAccessible(true);
+		return m;
 	}
 
 	private long address;
