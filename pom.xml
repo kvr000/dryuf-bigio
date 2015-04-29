@@ -24,7 +24,11 @@
 
 		<lombok.version>1.14.8</lombok.version>
 
+		<jsr305.version>3.0.1</jsr305.version>
+
 		<testng.version>6.8</testng.version>
+
+		<commons-io.version>2.3</commons-io.version>
 
 		<dryuf-bigio.version>0.0.1</dryuf-bigio.version>
 	</properties>
@@ -57,9 +61,23 @@
 		</dependency>
 
 		<dependency>
+			<groupId>com.google.code.findbugs</groupId>
+			<artifactId>jsr305</artifactId>
+			<version>${jsr305.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>${testng.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
 			<scope>test</scope>
 		</dependency>
 
